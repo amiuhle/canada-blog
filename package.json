@@ -1,0 +1,27 @@
+{
+  "name": "canada.timouhlmann.de",
+  "version": "0.0.1",
+  "description": "My canada blog",
+  "repository": "https://github.com/amiuhle/canada-blog.git",
+  "author": "Timo Uhlmann <timouhlmann@gmail.com>",
+  "scripts": {
+    "start": "webpack-dev-server -d --inline false",
+    "lint": "standard"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "standard": "^10.0.2",
+    "webpack": "^3.2.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "dependencies": {
+    "webpack-react-compiler-plugin": "^0.0.2"
+  }
+}
