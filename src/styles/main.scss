@@ -1,0 +1,41 @@
+// inuitcss
+// https://github.com/inuitcss/inuitcss
+// ITCSS: https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+
+// SETTINGS
+@import 'settings.config';
+@import 'settings.colors';
+@import 'settings.type';
+@import '~inuitcss/settings/settings.core';
+
+// TOOLS
+@import '~inuitcss/tools/tools.font-size';
+@import '~inuitcss/tools/tools.clearfix';
+@import 'tools.aliases';
+@import 'tools.mixins';
+
+// GENERIC
+@import '~inuitcss/generic/generic.box-sizing';
+@import '~inuitcss/generic/generic.reset';
+@import '~inuitcss/generic/generic.shared';
+
+// ELEMENTS
+@import '~inuitcss/elements/elements.page';
+@import 'elements.page';
+@import '~inuitcss/elements/elements.headings';
+@import 'elements.headings';
+
+// OBJECTS
+@import 'objects.layout';
+@import '~inuitcss/objects/objects.box';
+@import 'objects.flex';
+@import '~inuitcss/objects/objects.list-bare';
+
+// COMPONENTS
+@import 'components.buttons';
+@import 'components.hero';
+
+// UTILITIES
+@import '~inuitcss/utilities/utilities.spacings';
+@import 'utilities.alignments';
+@import 'utilities.text';

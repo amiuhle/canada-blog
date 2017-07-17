@@ -16,7 +16,8 @@ module.exports = {
   module: {
     rules: [
       { test: /\.jsx?$/, use: 'babel-loader' },
-      { test: /main\.scss/, loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']) }
+      { test: /main\.scss$/, loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']) },
+      { test: /\.(?:jpe?g|png)$/, loader: 'url-loader', query: { limit: 1024 } }
     ]
   },
 
