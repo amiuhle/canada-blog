@@ -3,8 +3,9 @@ import React, { Component } from 'react'
 
 export default class Image extends Component {
   render () {
+    // console.log(this.props)
     const {
-      foo,
+      exif,
       ...imageProps
     } = this.props
 
@@ -16,7 +17,7 @@ export default class Image extends Component {
 
 export const loadImages = requireContext =>
   requireContext.keys().map((path, key) =>
-    <Image className='c-hero__image' src={requireContext(path)} key={key} />
+    <Image className='c-hero__image' {...requireContext(path)} key={key} />
   )
 
 Image.propTypes = {

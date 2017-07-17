@@ -3,7 +3,7 @@ import React from 'react'
 import Hero from '../components/Hero'
 import { loadImages } from '../components/Image'
 
-const images = require.context('../../images/2017-07-08', false, /\.(?:jpe?g|png)$/)
+const images = require.context('../../images/2017-07-08', false, /\.(?:jpe?g|png)$/i)
 
 export default (props) => {
   const {

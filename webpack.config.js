@@ -17,7 +17,13 @@ module.exports = {
     rules: [
       { test: /\.jsx?$/, use: 'babel-loader' },
       { test: /main\.scss$/, loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']) },
-      { test: /\.(?:jpe?g|png)$/, loader: 'url-loader', query: { limit: 1024 } }
+      {
+        test: /\.(?:jpe?g)$/i,
+        use: [
+          './lib/exif-loader',
+          'file-loader'
+        ]
+      }
     ]
   },
 
