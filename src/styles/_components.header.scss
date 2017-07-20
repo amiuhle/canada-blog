@@ -1,0 +1,129 @@
+.c-header {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: grid;
+  grid-template-rows: 430px 70px;
+  grid-template-columns: 1fr 200px 800px 1fr;
+}
+
+.c-header__spacer {
+  display: block;
+  content: '';
+  grid-row: 2;
+  background-color: white;
+}
+
+.c-header__spacer--left {
+  grid-column: 1;
+}
+
+.c-header__spacer--left {
+  grid-column: 4;
+}
+
+.c-header__brand {
+  grid-column: 2;
+  grid-row: 2;
+  
+  display: flex;
+  justify-content: center;
+  
+  background-image: radial-gradient(
+    circle at top center, 
+    rgba(255, 255, 255, 0) 0px,
+    rgba(255, 255, 255, 0) 70px,
+    rgba(255, 255, 255, 1) 71px
+  );
+}
+
+.c-hero {
+  grid-column: 1 / span 4;
+  grid-row: 1;
+}
+
+.c-hero__container {
+  position: relative;
+  overflow: hidden;
+}
+
+.c-hero__image {
+  position: absolute;
+  top: -50%;
+  width: 100%;
+}
+
+$maple-leaf-size: 140px;
+
+.c-maple-leaf {
+  grid-row: 2;
+  grid-column: 2;
+  position: relative;
+  top: -$maple-leaf-size * 0.5;
+  width: $maple-leaf-size;
+  height: $maple-leaf-size;
+  
+  // z-index: 1;
+
+  display: flex;
+
+  border-radius: 50%;
+  background-color: rgba(200, 200, 200, 0.3);
+
+  .c-maple-leaf__border {
+    border-color: $brand-primary;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 5px;
+    
+    margin: 20px;
+
+    flex: 1;
+  }
+
+  svg {
+    fill: $brand-primary;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+  }
+}
+
+.c-nav {
+  grid-row: 2;
+  grid-column: 3;
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+
+    li {
+      padding: $base-spacing-unit $quad-spacing-unit;
+
+      a {
+        color: $brand-primary;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        text-decoration: none;
+      }
+
+      &:hover {
+        background-color: $brand-primary;
+        a { 
+          color: white;
+        }
+      }
+    }
+  }
+}
