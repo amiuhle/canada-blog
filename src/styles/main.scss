@@ -4,6 +4,7 @@
 
 // SETTINGS
 @import 'settings.config';
+@import "settings.variables";
 @import 'settings.colors';
 @import 'settings.type';
 @import '~inuitcss/settings/settings.core';
@@ -32,10 +33,12 @@
 @import '~inuitcss/objects/objects.list-bare';
 
 // COMPONENTS
+@import 'components.header';
 @import 'components.buttons';
-@import 'components.hero';
+@import 'components.icons';
 
 // UTILITIES
 @import '~inuitcss/utilities/utilities.spacings';
 @import 'utilities.alignments';
+@import 'utilities.colors';
 @import 'utilities.text';

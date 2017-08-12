@@ -20,9 +20,14 @@ module.exports = {
       {
         test: /\.(?:jpe?g)$/i,
         use: [
+          'babel-loader',
           './lib/exif-loader',
           'file-loader'
         ]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader'
       }
     ]
   },
