@@ -1,6 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
+import Icon from '../util/Icon'
+
+const Bullet = ({active}) => (
+  undefined
+)
+
 export default class Hero extends Component {
   constructor (props, context) {
     super(props, context)
@@ -9,6 +15,7 @@ export default class Hero extends Component {
       currentImage: 0
     }
   }
+
   render () {
     const {
       className
@@ -19,14 +26,24 @@ export default class Hero extends Component {
       currentImage
     } = this.state
 
-    console.log(images.map(image => image.props))
-
     return (
-      <header className={`${className || ''} c-hero`}>
+      <div className={`${className || ''} c-hero`}>
+        <div className='c-hero__pagination'>
+          <span>
+            {images.map((_, key) => <span key={key}>&bull;</span>)}
+          </span>
+        </div>
         <div className='c-hero__container'>
           {/* { images[currentImage] } */}
         </div>
-      </header>
+        <div className='c-hero__controls'>
+          <span>
+            <Icon name='map' />
+            <Icon name='images' />
+            <Icon name='expand' />
+          </span>
+        </div>
+      </div>
     )
   }
 }

@@ -24,6 +24,10 @@ module.exports = {
           './lib/exif-loader',
           'file-loader'
         ]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader'
       }
     ]
   },

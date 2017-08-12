@@ -17,6 +17,20 @@ const MapleLeaf = props => (
   </span>
 )
 
+const Title = () => (
+  <svg className='c-title' viewBox='0 0 200 200'>
+    <defs>
+      <path id='semi-circle' d='M 25 100 A 75 75 0 0 1 175 100' />
+    </defs>
+    <use xlinkHref='#semi-circle' stroke='none' fill='none' />
+    <text>
+      <textPath startOffset='14.8%' xlinkHref='#semi-circle'>
+        Timo <tspan className='u-brand-color'>Goes</tspan> To Canada
+      </textPath>
+    </text>
+  </svg>
+)
+
 export default ({className, children}) => (
   <header className={`${className || ''} c-header`}
     style={{ backgroundImage: background(children) }}>
@@ -25,6 +39,7 @@ export default ({className, children}) => (
     </Hero>
     <div className='c-header__spacer c-header__spacer--left' />
     <div className='c-header__brand'>
+      <Title />
       <MapleLeaf />
     </div>
     <Nav />

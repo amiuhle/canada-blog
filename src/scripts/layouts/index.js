@@ -3,7 +3,7 @@ import React from 'react'
 import Header from '../components/header/Header'
 import { loadImages } from '../components/util/Image'
 
-const images = require.context('../../images/unsorted', false, /\.(?:jpe?g|png)$/i)
+const images = require.context('../../images/2017-08-02', false, /\.(?:jpe?g|png)$/i)
 
 export default (props) => {
   const {
