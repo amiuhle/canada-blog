@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Header from '../components/header/Header'
+import Footer from '../components/Footer'
 
 const TITLE = 'Timo Goes To Canada'
 
@@ -27,6 +28,7 @@ export default (props) => {
           {children}
         </main>
         <aside className='o-layout__sidebar' />
+        <Footer className='o-layout__footer' />
         <script src='/client.js' />
       </body>
     </html>

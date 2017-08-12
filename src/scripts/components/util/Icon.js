@@ -7,10 +7,10 @@ if (isClient) {
   icons.keys().forEach(icons)
 }
 
-export default ({name, onClick}) => {
+export default ({name, onClick, className}) => {
   const Tag = onClick == null ? 'span' : 'a'
   return (
-    <Tag onClick={onClick} className={`icon icon--${name}`}>
+    <Tag onClick={onClick} className={`icon icon--${name} ${className || ''}`}>
       <svg>
         <use xlinkHref={`#${name}`} />
       </svg>

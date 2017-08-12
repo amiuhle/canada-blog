@@ -1,0 +1,13 @@
+.c-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  > * {
+    padding: 0 $base-spacing-unit;
+    
+    &:hover, &:focus, &:active {
+      fill: $brand-primary;
+    }
+  }
+}
