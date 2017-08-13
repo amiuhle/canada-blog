@@ -16,13 +16,21 @@ const posts = postsContext.keys().map(path => (
   }
 ))
 
+const requireImage = require.context('../../../images', true, /\.(?:jpe?g|png)$/i)
+
+console.log(requireImage.keys())
+
+const resolveImage = uri => {
+  return requireImage(uri).src
+}
+
 posts.forEach(({markdown, url, heroImages, ...layoutProps}) => {
   heroImages = heroImages.map((path, key) => (
     <Image className='c-hero__image' {...require(`../../../images/${path}`)} key={key} />
   ))
   module.exports[url] = (
     <Layout {...layoutProps} heroImages={heroImages}>
-      <ReactMarkdown source={markdown} />
+      <ReactMarkdown source={markdown} transformImageUri={resolveImage} />
     </Layout>
   )
 })
