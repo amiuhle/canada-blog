@@ -12,7 +12,7 @@ const urlRegex = /^\W*(.*)\.md$/g
 const posts = postsContext.keys().map(path => (
   {
     ...postsContext(path),
-    url: urlRegex.exec(path)[1]
+    url: `posts/${urlRegex.exec(path)[1]}`
   }
 ))
 
