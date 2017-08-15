@@ -21,7 +21,7 @@ const requireImage = require.context('../../../images', true, /\.(?:jpe?g|png)$/
 console.log(requireImage.keys())
 
 const resolveImage = uri => {
-  return requireImage(uri).src
+  return requireImage(uri.replace('../../../images', '.')).src
 }
 
 posts.forEach(({markdown, url, heroImages, ...layoutProps}) => {
