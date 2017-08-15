@@ -6,7 +6,11 @@
   "author": "Timo Uhlmann <timouhlmann@gmail.com>",
   "scripts": {
     "start": "webpack-dev-server -d --inline false",
-    "lint": "standard"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "posttest": "yarn lint",
+    "lint": "standard",
+    "build": "rm -rf dist && webpack"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
