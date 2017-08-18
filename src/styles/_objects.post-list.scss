@@ -1,0 +1,27 @@
+.o-post-list {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.o-post-list__item {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 352px;
+  height: 352px * 9/16;
+  margin: $small-spacing-unit;
+}
+
+.c-post-preview {
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+}
+
+.c-post-preview__title {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: $small-spacing-unit;
+  color: white;
+  text-decoration: none;
+}

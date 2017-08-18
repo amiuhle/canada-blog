@@ -28,6 +28,13 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: 'svg-sprite-loader'
+      },
+      {
+        test: /\.md$/,
+        loader: [
+          'json-loader',
+          './lib/post-loader'
+        ]
       }
     ]
   },
