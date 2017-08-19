@@ -11,10 +11,11 @@ export default (props) => {
   const {
     children,
     title,
-    heroImages
+    heroImages,
+    lang
   } = props
   return (
-    <html>
+    <html lang={lang || 'en'}>
       <head>
         <meta charSet='utf-8' />
         <meta httpEquiv='x-ua-compatible' content='ie=edge' />

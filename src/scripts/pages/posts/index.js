@@ -9,11 +9,13 @@ const images = require.context('../../../images/2017-08-02', false, /\.(?:jpe?g|
 const postsContext = require.context('.', false, /\.md$/)
 
 const posts = postsContext.keys().map(path => {
-  const urlRegex = /^\W*(.*)\.md$/g
+  const urlRegex = /^\W*((\d{4}-\d{2}-\d{2}).*)\.md$/g
   const match = urlRegex.exec(path)
-  const url = `posts/${match[1]}`
+  const [, title, date] = match
+  const url = `posts/${title}`
   return {
     ...postsContext(path),
+    date: new Date(date),
     url
   }
 })
@@ -24,7 +26,7 @@ const resolveImage = uri => {
   return requireImage(uri.replace('../../../images', '.')).src
 }
 
-posts.forEach(({markdown, url, heroImages, ...layoutProps}) => {
+posts.forEach(({markdown, url, heroImages, date, lang, ...layoutProps}) => {
   heroImages = heroImages.map((path, key) => (
     <Image
       key={key}
@@ -32,9 +34,17 @@ posts.forEach(({markdown, url, heroImages, ...layoutProps}) => {
       {...require(`../../../images/${path}`)}
     />
   ))
+  const dateFormatter = new Intl.DateTimeFormat(lang, {
+    year: 'numeric',
+    day: '2-digit',
+    month: '2-digit'
+  })
   module.exports[url] = (
-    <Layout className='c-post' {...layoutProps} heroImages={heroImages}>
-      <ReactMarkdown source={markdown} transformImageUri={resolveImage} />
+    <Layout lang={lang} {...layoutProps} heroImages={heroImages}>
+      <article className='c-post'>
+        <time>{dateFormatter.format(date)}</time>
+        <ReactMarkdown source={markdown} transformImageUri={resolveImage} />
+      </article>
     </Layout>
   )
 })
