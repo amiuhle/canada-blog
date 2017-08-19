@@ -11,7 +11,7 @@ const postsContext = require.context('.', false, /\.md$/)
 const posts = postsContext.keys().map(path => {
   const urlRegex = /^\W*(.*)\.md$/g
   const match = urlRegex.exec(path)
-  const url = `posts/${match[1]}.html`
+  const url = `posts/${match[1]}`
   return {
     ...postsContext(path),
     url

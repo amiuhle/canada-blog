@@ -8,7 +8,7 @@ export default ({className, post}) => {
   }
   return (
     <li className={`${className || ''} c-post-preview`} style={style}>
-      <a className='c-post-preview__title' href={url}>{title}</a>
+      <a className='c-post-preview__title' href={`${url}.html`}>{title}</a>
     </li>
   )
 }
