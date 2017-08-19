@@ -33,7 +33,7 @@ posts.forEach(({markdown, url, heroImages, ...layoutProps}) => {
     />
   ))
   module.exports[url] = (
-    <Layout {...layoutProps} heroImages={heroImages}>
+    <Layout className='c-post' {...layoutProps} heroImages={heroImages}>
       <ReactMarkdown source={markdown} transformImageUri={resolveImage} />
     </Layout>
   )

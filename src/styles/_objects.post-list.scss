@@ -5,8 +5,9 @@
 }
 
 .o-post-list__item {
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   width: 352px;
   height: 352px * 9/16;
   margin: $small-spacing-unit;
@@ -24,4 +25,5 @@
   padding: $small-spacing-unit;
   color: white;
   text-decoration: none;
+  text-transform: capitalize;
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import className from '../../../lib/class-name'
+
 import Header from '../components/header/Header'
 import Footer from '../components/Footer'
 
@@ -24,7 +26,7 @@ export default (props) => {
         <Header className='o-layout__header'>
           {heroImages}
         </Header>
-        <main className='o-layout__content'>
+        <main className={className(props, 'o-layout__content')}>
           {children}
         </main>
         <aside className='o-layout__sidebar' />
