@@ -1,9 +1,11 @@
 import React from 'react'
 
+import className from '../../../lib/class-name'
+
 import Icon from './util/Icon'
 
-export default ({className}) => (
-  <footer className={`${className || ''} c-footer`}>
+export default props => (
+  <footer className={className(props, 'c-footer')}>
     <a href='/rss'>
       <Icon name='rss' />
     </a>

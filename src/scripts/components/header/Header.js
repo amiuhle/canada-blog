@@ -1,5 +1,7 @@
 import React from 'react'
 
+import className from '../../../../lib/class-name'
+
 import Hero from './Hero'
 import Nav from './Nav'
 
@@ -31,8 +33,8 @@ const Title = () => (
   </svg>
 )
 
-export default ({className, children}) => (
-  <header className={`${className || ''} c-header`}
+export default ({children, ...props}) => (
+  <header className={className(props, 'c-header')}
     style={{ backgroundImage: background(children) }}>
     <Hero>
       {children}

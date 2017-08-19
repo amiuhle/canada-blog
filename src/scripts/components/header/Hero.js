@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
+import className from '../../../../lib/class-name'
+
 import Icon from '../util/Icon'
 
 const Bullet = ({active}) => (
@@ -17,9 +19,6 @@ export default class Hero extends Component {
   }
 
   render () {
-    const {
-      className
-    } = this.props
     const images = this.props.children
 
     const {
@@ -27,7 +26,7 @@ export default class Hero extends Component {
     } = this.state
 
     return (
-      <div className={`${className || ''} c-hero`}>
+      <div className={className(this.props, 'c-hero')}>
         <div className='c-hero__pagination'>
           <span>
             {images.map((_, key) => <span key={key}>&bull;</span>)}
