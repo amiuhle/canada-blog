@@ -1,29 +1,19 @@
 import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 
-import Image, { loadImages } from '../../components/util/Image'
-import Layout from '../../layouts'
-import Preview from '../../components/posts/PostPreview'
+import { getPosts } from '../util/posts'
+import Image, { loadImages } from '../components/util/Image'
+import Layout from '../layouts'
+import Preview from '../components/posts/PostPreview'
 
-const images = require.context('../../../images/2017-08-02', false, /\.(?:jpe?g|png)$/i)
-const postsContext = require.context('.', false, /\.md$/)
+const images = require.context('../../images/2017-08-02', false, /\.(?:jpe?g|png)$/i)
 
-const posts = postsContext.keys().map(path => {
-  const urlRegex = /^\W*((\d{4}-\d{2}-\d{2}).*)\.md$/g
-  const match = urlRegex.exec(path)
-  const [, title, date] = match
-  const url = `posts/${title}`
-  return {
-    ...postsContext(path),
-    date: new Date(date),
-    url
-  }
-})
+const posts = getPosts()
 
-const requireImage = require.context('../../../images', true, /\.(?:jpe?g|png)$/i)
+const requireImage = require.context('../../images', true, /\.(?:jpe?g|png)$/i)
 
 const resolveImage = uri => {
-  return requireImage(uri.replace('../../../images', '.')).src
+  return requireImage(uri.replace('../src/images', '.')).src
 }
 
 posts.forEach(({markdown, url, heroImages, date, lang, ...layoutProps}) => {
@@ -31,7 +21,7 @@ posts.forEach(({markdown, url, heroImages, date, lang, ...layoutProps}) => {
     <Image
       key={key}
       className='c-hero__image'
-      {...require(`../../../images/${path}`)}
+      {...require(`../../images/${path}`)}
     />
   ))
   const dateFormatter = new Intl.DateTimeFormat(lang, {
