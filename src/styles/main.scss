@@ -21,11 +21,12 @@
 @import '~inuitcss/generic/generic.shared';
 
 // ELEMENTS
+@import '~inuitcss/elements/elements.headings';
+@import 'elements.headings';
+@import '~inuitcss/elements/elements.images';
+@import 'elements.links';
 @import '~inuitcss/elements/elements.page';
 @import 'elements.page';
-@import '~inuitcss/elements/elements.headings';
-@import '~inuitcss/elements/elements.images';
-@import 'elements.headings';
 
 // OBJECTS
 @import 'objects.layout';

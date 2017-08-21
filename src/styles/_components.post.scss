@@ -1,5 +1,11 @@
 .c-post {
-  h2 {
+  h2, h3 {
     text-transform: capitalize;
+  }
+
+  img {
+    width: calc(50% - #{$small-spacing-unit});
+    margin-right: $base-spacing-unit;
+    float: left;
   }
 }
