@@ -8,4 +8,15 @@
     margin-right: $base-spacing-unit;
     float: left;
   }
+
+  blockquote {
+    padding-top: $small-spacing-unit;
+    padding-bottom: $small-spacing-unit;
+    padding-left: $base-spacing-unit - 1px;
+    border-left: 1px solid #aaa;
+
+    > p {
+      margin-bottom: 0;
+    }
+  }
 }
