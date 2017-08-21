@@ -16,7 +16,7 @@ const resolveImage = uri => {
   return requireImage(uri.replace('../src/images', '.')).src
 }
 
-posts.forEach(({markdown, url, heroImages, date, lang, ...layoutProps}) => {
+posts.forEach(({markdown, url, heroImages, date, lang, title, ...layoutProps}) => {
   heroImages = heroImages.map((path, key) => (
     <Image
       key={key}
@@ -30,10 +30,13 @@ posts.forEach(({markdown, url, heroImages, date, lang, ...layoutProps}) => {
     month: '2-digit'
   })
   module.exports[url] = (
-    <Layout lang={lang} {...layoutProps} heroImages={heroImages}>
+    <Layout lang={lang} {...layoutProps} heroImages={heroImages} title={title}>
       <article className='c-post'>
-        <time>{dateFormatter.format(date)}</time>
-        <ReactMarkdown source={markdown} transformImageUri={resolveImage} />
+        <div className='c-post__head'>
+          <time>{dateFormatter.format(date)}</time>
+          <h2>{title}</h2>
+        </div>
+        <ReactMarkdown className='c-post__body' source={markdown} transformImageUri={resolveImage} />
       </article>
     </Layout>
   )

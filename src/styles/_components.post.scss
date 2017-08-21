@@ -20,3 +20,14 @@
     }
   }
 }
+
+.c-post__head {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $double-spacing-unit;
+  > * {
+    margin-bottom: 0;
+  }
+}
