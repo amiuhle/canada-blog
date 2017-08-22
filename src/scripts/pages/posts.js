@@ -40,7 +40,7 @@ posts.forEach(({markdown, url, heroImages, date, lang, title, ...layoutProps}) =
         <ReactMarkdown className='c-post__body' source={markdown} transformImageUri={resolveImage} />
       </article>
       <aside className='c-post__comments'>
-        <Comments />
+        <Comments title={title} url={url} />
       </aside>
     </Layout>
   )
