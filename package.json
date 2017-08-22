@@ -10,7 +10,8 @@
     "test:watch": "jest --watch",
     "posttest": "yarn lint",
     "lint": "standard",
-    "build": "rm -rf dist && webpack"
+    "build": "rm -rf dist && webpack",
+    "dist": "yarn run build && gh-pages -d dist"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -22,6 +23,7 @@
     "exif-parser": "^0.1.12",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
+    "gh-pages": "^1.0.0",
     "jest": "^20.0.4",
     "json-loader": "^0.5.7",
     "node-eval": "^1.1.0",
