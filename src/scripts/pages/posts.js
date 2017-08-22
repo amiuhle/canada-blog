@@ -6,7 +6,7 @@ import Image, { loadImages } from '../components/util/Image'
 import Layout from '../layouts'
 import Preview from '../components/posts/PostPreview'
 
-const images = require.context('../../images/2017-08-02', false, /\.(?:jpe?g|png)$/i)
+const images = require.context('../../images/2017-04-30', false, /\.(?:jpe?g|png)$/i)
 
 const posts = getPosts()
 

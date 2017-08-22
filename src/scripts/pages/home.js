@@ -7,7 +7,7 @@ import { getPosts } from '../util/posts'
 import { loadImages } from '../components/util/Image'
 import PostPreview from '../components/posts/PostPreview'
 
-const images = require.context('../../images/2017-08-02', false, /\.(?:jpe?g|png)$/i)
+const images = require.context('../../images/2017-04-30', false, /\.(?:jpe?g|png)$/i)
 
 export default class Home extends React.Component {
   render () {
