@@ -20,7 +20,7 @@ export default (props) => {
         <meta charSet='utf-8' />
         <meta httpEquiv='x-ua-compatible' content='ie=edge' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='stylesheet' href='/styles.css' />
+        <link rel='stylesheet' href='styles.css' />
         <title>{`${title} – ${TITLE}` || TITLE}</title>
       </head>
       <body className='o-layout'>
@@ -32,7 +32,7 @@ export default (props) => {
         </main>
         <aside className='o-layout__sidebar' />
         <Footer className='o-layout__footer' />
-        <script src='/client.js' />
+        <script src='client.js' />
       </body>
     </html>
   )

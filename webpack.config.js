@@ -10,7 +10,8 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'client.js'
+    filename: 'client.js',
+    publicPath: '/tgtc/'
   },
 
   module: {
