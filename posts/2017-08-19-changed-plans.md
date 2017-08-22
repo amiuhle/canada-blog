@@ -1,6 +1,6 @@
 ```json
 {
-  "title": "Arrived, got a car, changed plans",
+  "title": "Got a car, not going to US",
   "lang": "en",
   "heroImages": [
     "2017-08-18/P8180088.JPG"
