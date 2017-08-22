@@ -5,6 +5,7 @@ import { getPosts } from '../util/posts'
 import Image, { loadImages } from '../components/util/Image'
 import Layout from '../layouts'
 import Preview from '../components/posts/PostPreview'
+import Comments from '../components/posts/PostComments'
 
 const images = require.context('../../images/2017-04-30', false, /\.(?:jpe?g|png)$/i)
 
@@ -38,6 +39,9 @@ posts.forEach(({markdown, url, heroImages, date, lang, title, ...layoutProps}) =
         </div>
         <ReactMarkdown className='c-post__body' source={markdown} transformImageUri={resolveImage} />
       </article>
+      <aside className='c-post__comments'>
+        <Comments />
+      </aside>
     </Layout>
   )
 })
