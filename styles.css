@@ -1,0 +1,768 @@
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,400i,700);@charset "UTF-8";
+/* ==========================================================================
+   #BOX-SIZING
+   ========================================================================== */
+/**
+ * More sensible default box-sizing:
+ * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/* ==========================================================================
+   #RESET
+   ========================================================================== */
+/**
+ * A very simple reset that sits on top of Normalize.css.
+ */
+body,
+h1, h2, h3, h4, h5, h6,
+blockquote, p, pre,
+dl, dd, ol, ul,
+figure,
+hr,
+fieldset, legend {
+  margin: 0;
+  padding: 0; }
+
+/**
+ * Remove trailing margins from nested lists.
+ */
+li > ol,
+li > ul {
+  margin-bottom: 0; }
+
+/**
+ * Remove default table spacing.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/**
+ * 1. Reset Chrome and Firefox behaviour which sets a `min-width: min-content;`
+ *    on fieldsets.
+ */
+fieldset {
+  min-width: 0;
+  /* [1] */
+  border: 0; }
+
+/* ==========================================================================
+   #SHARED
+   ========================================================================== */
+/**
+ * Shared declarations for certain elements.
+ */
+/**
+ * Always declare margins in the same direction:
+ * csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+/* stylelint-disable selector-list-comma-newline-after */
+address,
+h1, h2, h3, h4, h5, h6,
+blockquote, p, pre,
+dl, ol, ul,
+figure,
+hr,
+table,
+fieldset {
+  margin-bottom: 24px; }
+
+/**
+ * Consistent indentation for lists.
+ */
+dd, ol, ul {
+  margin-left: 24px; }
+
+/* stylelint-enable selector-list-comma-newline-after */
+/* ==========================================================================
+   #HEADINGS
+   ========================================================================== */
+/**
+ * Simple default styles for headings 1 through 6. Anything more opinionated
+ * than simple font-size changes should likely be applied via classes (see:
+ * http://csswizardry.com/2016/02/managing-typography-on-large-apps/).
+ */
+h1 {
+  font-size: 36px;
+  font-size: 2.25rem;
+  line-height: 1.33333; }
+
+h2 {
+  font-size: 28px;
+  font-size: 1.75rem;
+  line-height: 1.71429; }
+
+h3 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1; }
+
+h4 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.2; }
+
+h5 {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333; }
+
+h6 {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5; }
+
+h2 {
+  text-transform: capitalize; }
+
+/* ==========================================================================
+   #IMAGES
+   ========================================================================== */
+/**
+ * 1. Fluid images for responsive purposes.
+ * 2. Offset `alt` text from surrounding copy.
+ * 3. Setting `vertical-align` removes the whitespace that appears under `img`
+ *    elements when they are dropped into a page as-is. Safer alternative to
+ *    using `display: block;`.
+ */
+img {
+  max-width: 100%;
+  /* [1] */
+  font-style: italic;
+  /* [2] */
+  vertical-align: middle;
+  /* [3] */ }
+
+/**
+ * 1. If a `width` and/or `height` attribute have been explicitly defined, let’s
+ *    not make the image fluid.
+ */
+img[width],
+img[height] {
+  /* [1] */
+  max-width: none; }
+
+a {
+  color: #e52b2e;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+/* ==========================================================================
+   #PAGE
+   ========================================================================== */
+/**
+ * Simple page-level setup.
+ *
+ * 1. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from our default variables. The `font-size` is calculated to exist
+ *    in ems, the `line-height` is calculated to exist unitlessly.
+ * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
+ */
+html {
+  font-size: 1em;
+  /* [1] */
+  line-height: 1.5;
+  /* [1] */
+  overflow-y: scroll;
+  /* [2] */
+  min-height: 100%;
+  /* [3] */ }
+
+body {
+  font-family: "Titillium Web", sans-serif; }
+
+.o-layout {
+  display: grid;
+  grid-template-rows: 500px 1fr 96px;
+  grid-template-columns: 1fr 200px 800px 1fr;
+  min-height: 100vh; }
+
+.o-layout__header {
+  grid-column: 1 / span 4; }
+
+.o-layout__sidebar {
+  background-repeat: no-repeat;
+  background-position: center -70px;
+  background-size: 140px;
+  grid-column: 2;
+  grid-row: 2; }
+
+.o-layout__content {
+  grid-column: 3;
+  grid-row: 2;
+  background-color: white;
+  margin: 24px 24px 0; }
+
+.o-layout__footer {
+  grid-column: 2 / span 2;
+  grid-row: 3; }
+
+/* ==========================================================================
+   #BOX
+   ========================================================================== */
+/**
+ * The box object simply boxes off content. Extend with cosmetic styles in the
+ * Components layer.
+ *
+ * 1. So we can apply the `.o-box` class to naturally-inline elements.
+ */
+.o-box {
+  display: block;
+  /* [1] */
+  padding: 24px; }
+  .o-box:after {
+    content: "" !important;
+    display: block !important;
+    clear: both !important; }
+  .o-box > :last-child {
+    margin-bottom: 0; }
+
+/* Size variants.
+   ========================================================================== */
+.o-box--flush {
+  padding: 0; }
+
+.o-box--tiny {
+  padding: 6px; }
+
+.o-box--small {
+  padding: 12px; }
+
+.o-box--large {
+  padding: 48px; }
+
+.o-box--huge {
+  padding: 96px; }
+
+/* ==========================================================================
+   #LIST-BARE
+   ========================================================================== */
+/**
+ * Strip list-like appearance from lists by removing their bullets, and any
+ * indentation.
+ *
+ * Note: Declaring the item-class might not be necessary everywhere but
+ * is for example in <dl> lists for the <dd> childs.
+ */
+.o-list-bare {
+  list-style: none;
+  margin-left: 0; }
+
+.o-list-bare__item {
+  margin-left: 0; }
+
+.o-post-list {
+  display: flex;
+  flex-wrap: wrap; }
+
+.o-post-list__item {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 352px;
+  height: 198px;
+  margin: 12px; }
+
+.c-post-preview {
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer; }
+
+.c-post-preview__title {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  text-transform: capitalize; }
+
+.c-header {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  grid-template-rows: 430px 70px;
+  grid-template-columns: 1fr 200px 800px 1fr; }
+
+.c-header__spacer {
+  display: block;
+  content: '';
+  grid-row: 2;
+  background-color: white; }
+
+.c-header__spacer--left {
+  grid-column: 1; }
+
+.c-header__spacer--right {
+  grid-column: 4; }
+
+.c-header__brand {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  background-image: radial-gradient(circle at top center, rgba(255, 255, 255, 0) 0px, rgba(255, 255, 255, 0) 70px, white 71px);
+  position: relative; }
+
+.c-hero {
+  grid-column: 1 / span 4;
+  grid-row: 1;
+  position: relative; }
+
+.c-hero__controls, .c-hero__pagination {
+  height: 48px; }
+
+.c-hero__controls {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  fill: white;
+  display: flex;
+  justify-content: flex-end; }
+  .c-hero__controls .icon {
+    margin: 0 12px; }
+  .c-hero__controls > span {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+
+.c-hero__pagination {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  color: white;
+  display: flex;
+  justify-content: center; }
+  .c-hero__pagination > span {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+.c-title, .c-maple-leaf {
+  position: absolute; }
+
+.c-title {
+  top: -100px;
+  width: 200px;
+  height: 200px;
+  fill: white;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.c-maple-leaf {
+  top: -70px;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  border-radius: 50%;
+  border-width: 0;
+  background-color: rgba(200, 200, 200, 0.3); }
+  .c-maple-leaf .c-maple-leaf__border {
+    border-color: #e52b2e;
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 5px;
+    margin: 20px;
+    flex: 1; }
+  .c-maple-leaf svg {
+    fill: #e52b2e;
+    width: 100%;
+    height: 100%;
+    padding: 5px; }
+
+.c-nav {
+  grid-row: 2;
+  grid-column: 3;
+  background-color: white;
+  display: flex;
+  align-items: center; }
+  .c-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    flex: 1;
+    display: flex;
+    justify-content: space-around; }
+    .c-nav ul li {
+      padding: 24px 96px; }
+      .c-nav ul li a {
+        color: #e52b2e;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-decoration: none; }
+      .c-nav ul li:hover {
+        background-color: #e52b2e; }
+        .c-nav ul li:hover a {
+          color: white; }
+
+.c-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .c-footer > * {
+    padding: 0 24px; }
+    .c-footer > *:hover, .c-footer > *:focus, .c-footer > *:active {
+      fill: #e52b2e; }
+
+.icon {
+  width: 24px;
+  height: 24px; }
+  .icon svg {
+    width: 24px;
+    height: 24px; }
+  .icon--large {
+    width: 48px;
+    height: 48px; }
+    .icon--large svg {
+      width: 48px;
+      height: 48px; }
+
+.c-post h2, .c-post h3 {
+  text-transform: capitalize; }
+
+.c-post img {
+  width: calc(50% - 12px);
+  margin-right: 24px;
+  float: left; }
+
+.c-post blockquote {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 23px;
+  border-left: 1px solid #aaa; }
+  .c-post blockquote > p {
+    margin-bottom: 0; }
+
+.c-post__head {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px; }
+  .c-post__head > * {
+    margin-bottom: 0; }
+
+/* ==========================================================================
+   #SPACINGS
+   ========================================================================== */
+/**
+ * Utility classes to put specific spacing values onto elements. The below loop
+ * will generate us a suite of classes like:
+ *
+ *   .u-margin-top {}
+ *   .u-padding-left-large {}
+ *   .u-margin-right-small {}
+ *   .u-padding {}
+ *   .u-padding-right-none {}
+ *   .u-padding-horizontal {}
+ *   .u-padding-vertical-small {}
+ */
+/* stylelint-disable string-quotes */
+.u-padding {
+  padding: 24px !important; }
+
+.u-padding-tiny {
+  padding: 6px !important; }
+
+.u-padding-small {
+  padding: 12px !important; }
+
+.u-padding-large {
+  padding: 48px !important; }
+
+.u-padding-huge {
+  padding: 96px !important; }
+
+.u-padding-none {
+  padding: 0 !important; }
+
+.u-padding-top {
+  padding-top: 24px !important; }
+
+.u-padding-top-tiny {
+  padding-top: 6px !important; }
+
+.u-padding-top-small {
+  padding-top: 12px !important; }
+
+.u-padding-top-large {
+  padding-top: 48px !important; }
+
+.u-padding-top-huge {
+  padding-top: 96px !important; }
+
+.u-padding-top-none {
+  padding-top: 0 !important; }
+
+.u-padding-right {
+  padding-right: 24px !important; }
+
+.u-padding-right-tiny {
+  padding-right: 6px !important; }
+
+.u-padding-right-small {
+  padding-right: 12px !important; }
+
+.u-padding-right-large {
+  padding-right: 48px !important; }
+
+.u-padding-right-huge {
+  padding-right: 96px !important; }
+
+.u-padding-right-none {
+  padding-right: 0 !important; }
+
+.u-padding-bottom {
+  padding-bottom: 24px !important; }
+
+.u-padding-bottom-tiny {
+  padding-bottom: 6px !important; }
+
+.u-padding-bottom-small {
+  padding-bottom: 12px !important; }
+
+.u-padding-bottom-large {
+  padding-bottom: 48px !important; }
+
+.u-padding-bottom-huge {
+  padding-bottom: 96px !important; }
+
+.u-padding-bottom-none {
+  padding-bottom: 0 !important; }
+
+.u-padding-left {
+  padding-left: 24px !important; }
+
+.u-padding-left-tiny {
+  padding-left: 6px !important; }
+
+.u-padding-left-small {
+  padding-left: 12px !important; }
+
+.u-padding-left-large {
+  padding-left: 48px !important; }
+
+.u-padding-left-huge {
+  padding-left: 96px !important; }
+
+.u-padding-left-none {
+  padding-left: 0 !important; }
+
+.u-padding-horizontal {
+  padding-left: 24px !important;
+  padding-right: 24px !important; }
+
+.u-padding-horizontal-tiny {
+  padding-left: 6px !important;
+  padding-right: 6px !important; }
+
+.u-padding-horizontal-small {
+  padding-left: 12px !important;
+  padding-right: 12px !important; }
+
+.u-padding-horizontal-large {
+  padding-left: 48px !important;
+  padding-right: 48px !important; }
+
+.u-padding-horizontal-huge {
+  padding-left: 96px !important;
+  padding-right: 96px !important; }
+
+.u-padding-horizontal-none {
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
+
+.u-padding-vertical {
+  padding-top: 24px !important;
+  padding-bottom: 24px !important; }
+
+.u-padding-vertical-tiny {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important; }
+
+.u-padding-vertical-small {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important; }
+
+.u-padding-vertical-large {
+  padding-top: 48px !important;
+  padding-bottom: 48px !important; }
+
+.u-padding-vertical-huge {
+  padding-top: 96px !important;
+  padding-bottom: 96px !important; }
+
+.u-padding-vertical-none {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important; }
+
+.u-margin {
+  margin: 24px !important; }
+
+.u-margin-tiny {
+  margin: 6px !important; }
+
+.u-margin-small {
+  margin: 12px !important; }
+
+.u-margin-large {
+  margin: 48px !important; }
+
+.u-margin-huge {
+  margin: 96px !important; }
+
+.u-margin-none {
+  margin: 0 !important; }
+
+.u-margin-top {
+  margin-top: 24px !important; }
+
+.u-margin-top-tiny {
+  margin-top: 6px !important; }
+
+.u-margin-top-small {
+  margin-top: 12px !important; }
+
+.u-margin-top-large {
+  margin-top: 48px !important; }
+
+.u-margin-top-huge {
+  margin-top: 96px !important; }
+
+.u-margin-top-none {
+  margin-top: 0 !important; }
+
+.u-margin-right {
+  margin-right: 24px !important; }
+
+.u-margin-right-tiny {
+  margin-right: 6px !important; }
+
+.u-margin-right-small {
+  margin-right: 12px !important; }
+
+.u-margin-right-large {
+  margin-right: 48px !important; }
+
+.u-margin-right-huge {
+  margin-right: 96px !important; }
+
+.u-margin-right-none {
+  margin-right: 0 !important; }
+
+.u-margin-bottom {
+  margin-bottom: 24px !important; }
+
+.u-margin-bottom-tiny {
+  margin-bottom: 6px !important; }
+
+.u-margin-bottom-small {
+  margin-bottom: 12px !important; }
+
+.u-margin-bottom-large {
+  margin-bottom: 48px !important; }
+
+.u-margin-bottom-huge {
+  margin-bottom: 96px !important; }
+
+.u-margin-bottom-none {
+  margin-bottom: 0 !important; }
+
+.u-margin-left {
+  margin-left: 24px !important; }
+
+.u-margin-left-tiny {
+  margin-left: 6px !important; }
+
+.u-margin-left-small {
+  margin-left: 12px !important; }
+
+.u-margin-left-large {
+  margin-left: 48px !important; }
+
+.u-margin-left-huge {
+  margin-left: 96px !important; }
+
+.u-margin-left-none {
+  margin-left: 0 !important; }
+
+.u-margin-horizontal {
+  margin-left: 24px !important;
+  margin-right: 24px !important; }
+
+.u-margin-horizontal-tiny {
+  margin-left: 6px !important;
+  margin-right: 6px !important; }
+
+.u-margin-horizontal-small {
+  margin-left: 12px !important;
+  margin-right: 12px !important; }
+
+.u-margin-horizontal-large {
+  margin-left: 48px !important;
+  margin-right: 48px !important; }
+
+.u-margin-horizontal-huge {
+  margin-left: 96px !important;
+  margin-right: 96px !important; }
+
+.u-margin-horizontal-none {
+  margin-left: 0 !important;
+  margin-right: 0 !important; }
+
+.u-margin-vertical {
+  margin-top: 24px !important;
+  margin-bottom: 24px !important; }
+
+.u-margin-vertical-tiny {
+  margin-top: 6px !important;
+  margin-bottom: 6px !important; }
+
+.u-margin-vertical-small {
+  margin-top: 12px !important;
+  margin-bottom: 12px !important; }
+
+.u-margin-vertical-large {
+  margin-top: 48px !important;
+  margin-bottom: 48px !important; }
+
+.u-margin-vertical-huge {
+  margin-top: 96px !important;
+  margin-bottom: 96px !important; }
+
+.u-margin-vertical-none {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
+
+/* stylelint-enable string-quotes */
+.u-align-left {
+  text-align: left; }
+
+.u-align-center {
+  text-align: center; }
+
+.u-align-right {
+  text-align: right; }
+
+.u-brand-color {
+  color: #e52b2e;
+  fill: #e52b2e; }
+
+.u-muted {
+  font-size: 12px;
+  color: #444; }
