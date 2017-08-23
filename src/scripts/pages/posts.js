@@ -26,6 +26,7 @@ posts.forEach(({markdown, url, heroImages, date, lang, title, ...layoutProps}) =
     />
   ))
   const dateFormatter = new Intl.DateTimeFormat(lang, {
+    timeZone: 'UTC',
     year: 'numeric',
     day: '2-digit',
     month: '2-digit'
