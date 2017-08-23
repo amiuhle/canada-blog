@@ -30,7 +30,7 @@ would have a car by Thursday. So on Wednesday afternoon, while waiting for the
 car dealer to get the license plates ready, I looked at ticket prices for the
 Solheim Cup.
 
-It's $60 per day, which is kind fine, I didn't expect this to be cheap.
+It's $60 per day, which is fine, I didn't expect this to be cheap.
 But, I have a car now (*yay!*), so what about parking? From their 
 [FAQ](http://www.solheimcupusa.com/event-tickets/ticketing-faq):
 
