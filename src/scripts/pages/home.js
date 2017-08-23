@@ -18,10 +18,33 @@ export default class Home extends React.Component {
         <p>
           Welcome to my Work &amp; Travel in Canada blog!
         </p>
+        <h3>It's still a work in progress</h3>
         <p>
-          Posts are in English or German, depending on the main target audience.<br />
-          You can read more <a href='/about.html'>about me here</a>.
+          Things on my TODO-List:
+          <ul>
+            <li>Make it mobile friendly</li>
+            <li>Notifications for new posts</li>
+            <li>Do some cool stuff with the images in the header</li>
+          </ul>
         </p>
+        <p>
+          If things looks strange, update your browser. I'm testing some new stuff.<br />
+          If it still looks strange, update your taste. Or maybe it just looks strange.
+        </p>
+        <h3>German vs English / <em style={{color: 'white'}}>wer das liesst ist doof! :P</em></h3>
+        <p>
+          I have decided to write posts both in English and German. English posts
+          will be more detailed and more frequent. German posts will summarize
+          longer time periods and be less detailed, linking to the original posts.<br />
+          There will be different categories or tags for each language.
+        </p>
+        <p><em>
+          Ich werde sowohl auf Deutsch als auch auf Englisch bloggen. Englische
+          Beiträge werden häufiger vorkommen und detaillierter sein. Deutsche Posts
+          werden längere Zeiträume zusammenfassen und zu den Originalbeiträgen
+          verlinken.<br />
+          Es wird verschiedene Kategorien oder Tags für beide Sprachen geben.
+        </em></p>
 
         <h2>Recent Posts</h2>
         {

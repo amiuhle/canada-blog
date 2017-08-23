@@ -9,10 +9,11 @@ export default class About extends React.Component {
   render () {
     return (
       <div>
-        <h2>About</h2>
+        <h2>Hi, I'm Timo</h2>
         <p>
-          <em>Travel adventures and thoughts of a 34yr old web developer while in
-          Canada for Work &amp; Trael.</em>
+          I'm a 34yr old web developer from Ulm, Germany. I'm currently in Canada
+          for work &amp; travel.<br />
+          It'll be great. So great.
         </p>
       </div>
     )
