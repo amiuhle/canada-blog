@@ -8,9 +8,10 @@ export default ({post, ...props}) => {
   const style = {
     backgroundImage: `url(${image.src})`
   }
+  const href = `${url}.html`
   return (
-    <li className={className(props, 'c-post-preview')} style={style}>
-      <a className='c-post-preview__title' href={`${url}.html`}>{title}</a>
+    <li className={className(props, 'c-post-preview')} onClick={() => window.location.href = href} style={style}>
+      <a className='c-post-preview__title' href={href}>{title}</a>
     </li>
   )
 }

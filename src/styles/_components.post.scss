@@ -31,3 +31,12 @@
     margin-bottom: 0;
   }
 }
+
+.c-post__comments {
+  margin: $double-spacing-unit 0;
+  padding: $base-spacing-unit;
+  
+  border-color: $brand-primary;
+  border-width: 1px;
+  border-style: solid none;
+}
